@@ -1,0 +1,59 @@
+<div ng-cloak>
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card ng-controller="BancoCtrl">
+                <md-card-header>
+                    <md-card-avatar>
+                        <img class="md-user-avatar" src="media/img/list/60.jpeg" />
+                    </md-card-avatar>
+                    <md-card-header-text>
+                        <span class="md-headline">{{banco.name}}</span>
+                        <span class="md-subhead">{{banco.detail_name}} {{banco.version}}</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <md-divider></md-divider>
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button class="md-icon-button" aria-label="Add" ui-sref="asociacion.asociacion.bancoNew">
+                        <md-tooltip md-autohide>Agregar</md-tooltip>
+                        <ng-md-icon icon="add" aria-label="Add"></ng-md-icon>
+                    </md-button>
+                </md-card-actions>
+                <md-card-content>
+                    <table table-responsive>
+                        <md-progress-linear layout-fill md-mode="indeterminate" ng-hide="!isLoading"></md-progress-linear>
+                        <thead md-on-reorder="onReorder">
+                            <tr>
+                                <th>#</th>
+                                <th class="col-hidden" data-order="entidad_bancaria">Entidad bancaria</th>
+                                <th class="col-hidden" data-order="tipo_cuenta">Tipo de cuenta</th>
+                                <th class="col-hidden" data-order="numero_cuenta">Numero de cuenta</th>
+                                <th colspan="2" class="align-options">acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in lista">
+                                <td> {{ $index + 1 }} </td>
+                                <td> {{ d.entidad_bancaria }} </td>
+                                <td> {{ d.tipo_cuenta }} </td>
+                                <td> {{ d.numero_cuenta }} </td>
+                                <td>
+                                    <md-button class="md-icon-button md-td" aria-label="Edit" ui-sref="asociacion.asociacion.bancoEdit({id:d.id})">
+                                        <md-tooltip md-autohide>Editar {{ d.numero_cuenta }}</md-tooltip>
+                                        <ng-md-icon size="24" icon="edit" aria-label="Edit"></ng-md-icon>
+                                    </md-button>
+                                </td>
+                                <td>
+                                    <md-button class="md-icon-button md-td" aria-label="delete" ng-click="delete(d)">
+                                        <md-tooltip md-autohide>Eliminar {{ d.numero_cuenta }}</md-tooltip>
+                                        <ng-md-icon size="24" icon="delete" aria-label="delete"></ng-md-icon>
+                                    </md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </md-table-container>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</div>
