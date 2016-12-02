@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # import the logging library
 import logging
 import json

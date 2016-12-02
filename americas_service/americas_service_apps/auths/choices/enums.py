@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Enums de la app
 """

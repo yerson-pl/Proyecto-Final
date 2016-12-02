@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 E1 = "Terreno sin construir"
 E2 = "Terreno con cerco perimetrico"
 E3 = "Inmueble parcialmente construido"
